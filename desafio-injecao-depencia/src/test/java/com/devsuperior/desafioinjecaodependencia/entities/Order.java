@@ -2,6 +2,8 @@ package com.devsuperior.desafioinjecaodependencia.entities;
 
 
 public class Order {
+
+    //variavéis
     private Integer code;
     private Double basic; //valor básico do pedido (sem desconto)
     private Double discount; //porcentagem de desconto (ex: 20.0 -> 20%)
@@ -9,6 +11,7 @@ public class Order {
     public Order() {
     }
 
+    //construtor
     public Order(Integer code, Double discount, Double basic) {
         this.code = code;
         this.discount = discount;
