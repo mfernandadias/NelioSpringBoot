@@ -1,7 +1,5 @@
 package exemploDidatico.services;
 
-import exemploDidatico.entities.Employee;
-
 public class SalaryService {
 
   private TaxService taxService;
