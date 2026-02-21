@@ -1,0 +1,46 @@
+O que é Modelo de Domínio
+O que é ORM
+Como transformar o diagrama em código(Spring Boot + JPA + H2)
+Exemplos completos de entidades
+Explicação dos relacionamentos
+
+
+1 - O que é Modelo de Domínio ?
+Modelo de Domínio é a representação das regras de negócio em forma de classes
+No seu diagrama temos:
+User
+Order
+Product
+Category
+OrderItem
+Payment
+OderStatus(enum)
+Isso representa o mundo real de um e-commerce
+* Um usáro faz vários pedidos
+* Um pedido tem vários produtos
+* Um pedido pode ter um pagamento
+Isso é o modelo de domínio
+
+O que é ORM ?
+ORM = Object Relacional Mapping
+É a técnica que transforma
+| Java (Objeto)  | Banco de Dados |
+| -------------- | -------------- |
+| Classe         | Tabela         |
+| Atributo       | Coluna         |
+| Objeto         | Linha          |
+| Relacionamento | Foreign Key    |
+
+* Tabelas criadas
+* Tabela intermediária many-to-many criada
+* Foreign keys corretas
+* Dados inseridos
+* Relacionamentos funcionando
+
+O que é JPA ?
+JPA(Java Persistence API) é uma especificação para mapear objetos Java  -> tabelas do banco
+A implementação que o Spring Boot usa por padrão é o Hibernate.
+Ou seja:
+Classe Java  →  Tabela
+Objeto       →  Linha
+Atributo     →  Coluna
