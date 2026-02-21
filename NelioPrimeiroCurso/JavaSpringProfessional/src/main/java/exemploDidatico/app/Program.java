@@ -1,6 +1,5 @@
 package exemploDidatico.app;
 
-import exemploDidatico.entities.Employee;
 import exemploDidatico.services.BrazilTaxService;
 import exemploDidatico.services.PensionService;
 import exemploDidatico.services.SalaryService;
