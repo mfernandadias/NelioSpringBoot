@@ -1,52 +1,43 @@
 package com.professionalJava.challengea.entities;
 
+
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Entity
-@Table(name ="tb.atividade")
+@Table(name = "tb_atividade")
 public class Atividade {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    /*
-    aliança
-     @OneToMany(mappedBy = "categoria")
-    private Set<Atividade> atividades = new HashSet<>();
-     */
+    private String name;
+    private String descricao;
+    private Double preco;
 
-    @ManyToMany
+    // 🔹 Muitos para muitos (lado inverso)
+    @ManyToMany(mappedBy = "atividades")
+    private Set<Participante> participantes = new HashSet<>();
+
+    // 🔹 Muitos para um (Categoria)
+    @ManyToOne
     @JoinColumn(name = "categoria_id")
     private Categoria categoria;
 
-    @ManyToMany
-    @JoinTable(
-            name = "tb_atividade_participante",
-            joinColumns = @JoinColumn(name = "atividade_id"),
-            inverseJoinColumns = @JoinColumn(name = "participante_id")
-    )
-    private Set<Participante> participantes = new HashSet<>();
-
-    //
+    // 🔹 Um para muitos (Bloco)
     @OneToMany(mappedBy = "atividade")
-    private Set<Bloco> blocos = new HashSet<>();
+    private List<Bloco> blocos = new ArrayList<>();
 
-    public Atividade() {}
-
-    private String name;
-    private String descricao;
-    private double preco;
-
-    //construtor ->
-    public Atividade(Long id, Categoria categoria, String name, String descricao, double preco) {
+    public Atividade(Long id, Double preco, String descricao, String name) {
         this.id = id;
-        this.categoria = categoria;
-        this.name = name;
-        this.descricao = descricao;
         this.preco = preco;
+        this.descricao = descricao;
+        this.name = name;
     }
 
     public Long getId() {
@@ -57,11 +48,11 @@ public class Atividade {
         this.id = id;
     }
 
-    public double getPreco() {
+    public Double getPreco() {
         return preco;
     }
 
-    public void setPreco(double preco) {
+    public void setPreco(Double preco) {
         this.preco = preco;
     }
 
@@ -79,13 +70,5 @@ public class Atividade {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public Categoria getCategoria() {
-        return categoria;
-    }
-
-    public void setCategoria(Categoria categoria) {
-        this.categoria = categoria;
     }
 }
