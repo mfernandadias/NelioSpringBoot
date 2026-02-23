@@ -7,6 +7,6 @@ import org.springframework.web.bind.annotation.RestController;
 public class TesteController {
     @GetMapping("/ola")
     public String ola() {
-        return "Olá Mundo Spring Boot 🚀";
+        return "Olá Mundo Spring Boot";
     }
 }
