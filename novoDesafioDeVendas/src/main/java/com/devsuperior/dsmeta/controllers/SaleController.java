@@ -17,26 +17,7 @@ import java.util.List;
 @RequestMapping(value = "/sales")
 public class SaleController {
 
-	/*@Autowired
-	private SaleService service;
 	
-	@GetMapping(value = "/{id}")
-	public ResponseEntity<SaleMinDTO> findById(@PathVariable Long id) {
-		SaleMinDTO dto = service.findById(id);
-		return ResponseEntity.ok(dto);
-	}
-
-	@GetMapping(value = "/report")
-	public ResponseEntity<?> getReport() {
-		// TODO
-		return null;
-	}
-
-	@GetMapping(value = "/summary")
-	public ResponseEntity<?> getSummary() {
-		// TODO
-		return null;
-	} */
 	@Autowired
 	private SaleService service;
 
