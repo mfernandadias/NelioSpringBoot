@@ -17,7 +17,7 @@ import java.util.List;
 @RequestMapping(value = "/sales")
 public class SaleController {
 
-	
+
 	@Autowired
 	private SaleService service;
 
@@ -40,7 +40,7 @@ public class SaleController {
 
 		return service.report(minDate, maxDate, name, pageable);
 	}
-
+	//maria fernanda dos santos dias
 	// Endpoint do sumário
 	@GetMapping("/summary")
 	public List<SaleSummaryDTO> summary(
